@@ -1,0 +1,8 @@
+{
+  "name": "expose-corruption-platform",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Add frontend tests\" && exit 0"
+  }
+}

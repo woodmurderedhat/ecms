@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "contracts",
+  "type": "object",
+  "required": [
+    "tender_id",
+    "buyer_org",
+    "supplier",
+    "award_date",
+    "value",
+    "currency",
+    "source_url"
+  ],
+  "properties": {
+    "tender_id": {"type": "string"},
+    "buyer_org": {"type": "string"},
+    "supplier": {"type": "string"},
+    "award_date": {"type": "string", "format": "date"},
+    "value": {"type": "number"},
+    "currency": {"type": "string", "const": "ZAR"},
+    "description": {"type": "string"},
+    "flag_score": {"type": "number"},
+    "flag_reasons": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "source_url": {"type": "string", "format": "uri"}
+  }
+}
