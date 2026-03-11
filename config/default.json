@@ -3,10 +3,15 @@
   "sources": {
     "etender_base_url": "https://ocds-api.etenders.gov.za/api/1.0",
     "municipal_data_url": "https://municipaldata.treasury.gov.za",
-    "gazette_url": "https://www.gpwonline.co.za"
+    "gazette_url": "https://www.gpwonline.co.za",
+    "municipal_resources": [],
+    "gazette_paths": []
   },
   "pipeline": {
     "poll_interval_minutes": 1440,
-    "currency": "ZAR"
+    "currency": "ZAR",
+    "score_threshold": 0.55,
+    "request_timeout_seconds": 30,
+    "etender_max_pages": 1
   }
 }

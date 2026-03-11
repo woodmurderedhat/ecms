@@ -41,6 +41,49 @@ npm install
 pytest -q
 ```
 
+### Run live fetch cycle locally
+Run one cycle and exit:
+
+```bash
+python -m src.scheduler --config config/default.json
+```
+
+Run repeatedly with a pause between cycles (local daemon-style):
+
+```bash
+python -m src.scheduler --config config/default.json --interval-seconds 300 --max-cycles 20
+```
+
+### One-command local run
+Start the analyst UI and run the scheduler in one command:
+
+```bash
+./scripts/run-local.sh
+```
+
+Optional environment variables:
+- `ECMS_CONFIG_PATH` (default: `config/default.json`)
+- `ECMS_UI_HOST` (default: `0.0.0.0`)
+- `ECMS_UI_PORT` (default: `8000`)
+- `ECMS_SCHED_INTERVAL_SECONDS` (default: `0`, run once)
+- `ECMS_SCHED_MAX_CYCLES` (default: `1`)
+
+Example recurring local run:
+
+```bash
+ECMS_SCHED_INTERVAL_SECONDS=300 ECMS_SCHED_MAX_CYCLES=20 ./scripts/run-local.sh
+```
+
+### Analyst API endpoints
+- `GET /health`
+- `GET /cases?limit=50`
+- `GET /case/<id>`
+- `PATCH /case/<id>` (update `state`, `legal_review_status`, `corroborating_sources`)
+- `GET /dashboard/summary`
+- `POST /evidence/<case_id>`
+- `GET /evidence/<case_id>`
+- `GET /evidence/package/<package_id>`
+
 ## Branching Model
 - `main`: protected, release-ready
 - `develop`: integration branch
